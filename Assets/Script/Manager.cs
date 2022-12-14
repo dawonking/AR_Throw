@@ -53,24 +53,14 @@ public class Manager : MonoBehaviour
         }        
     }
 
+    //시작시 초기화 및 설정
     private void Start()
     {
         resetbtn();
         state = State.scan;
     }
 
-
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            Debug.Log("camera t = "+camera.transform.position);
-            Debug.Log("camera r = " + camera.transform.rotation);
-            Debug.Log("arplane = " + m_arplane.transform.position);
-        }
-
-    }
-
+    //리셋 버튼
     public void resetbtn()
     {
         state = State.scan;
@@ -81,6 +71,7 @@ public class Manager : MonoBehaviour
         ARTouch.instance.objPrefab.SetActive(false);
     }
 
+    //게임시작 버튼
     public void gamestartbtn()
     {
         goalCount = 0;
@@ -92,6 +83,7 @@ public class Manager : MonoBehaviour
         goal_text(goalCount);        
     }
 
+    //공위치 초기화
     public void returnball()
     {
         ballObj.transform.position = ballresetpos.position;
@@ -100,6 +92,7 @@ public class Manager : MonoBehaviour
         ballObj.SetActive(true);        
     }
 
+    //ARPlaneManager에서 영역 검색후 사용자가 선택한뒤 시작을 누르면 너머지 영역들을 비활성화 시켜준다.
     public void artrackble_off(bool enable)
     {
         foreach (var plane in m_arplane.trackables)

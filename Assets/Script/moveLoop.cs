@@ -14,13 +14,12 @@ public class moveLoop : MonoBehaviour
     float speed = 3.0f;
 
 
-    // Start is called before the first frame update
     void Start()
     {
         pos = transform.localPosition;
     }
 
-    // Update is called once per frame
+    //sin형태로 일정 주기로 움직임
     void Update()
     {
         Vector3 v = pos;
